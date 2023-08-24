@@ -1,0 +1,30 @@
+:host {
+  @apply flex m-3;
+
+  box-shadow: 0 0 20px 10px rgb(0 0 0 / 70%);
+  flex-wrap: wrap-reverse;
+  overflow: auto;
+}
+
+.login-bg {
+  @apply bg-purple-950 gap-4 text-neutral-50;
+  @apply flex flex-col justify-center items-center;
+
+  padding: 1rem;
+  min-width: 300px;
+  flex: 1 50%;
+  text-align: center;
+}
+
+.login-form {
+  @apply flex flex-col gap-4 flex-grow flex-shrink-0 p-6;
+
+  max-width: 100%;
+  width: 400px;
+}
+
+.logo-img {
+  object-fit: contain;
+  align-self: center;
+  filter: brightness(1.5);
+}

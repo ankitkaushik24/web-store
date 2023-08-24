@@ -1,0 +1,7 @@
+:host {
+    height: 100%;
+    display: flex;
+    router-outlet + ::ng-deep * {
+        flex: 1;
+    }
+}

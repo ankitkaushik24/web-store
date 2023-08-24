@@ -1,0 +1,23 @@
+<div class="login-bg basis-2/3" >
+  <h1>Making Commerce better for Everyone</h1>
+  <h4>
+    Your one-stop online store for everything you need. We
+    make shopping online easy and convenient
+  </h4>
+</div>
+
+<form class="login-form" [formGroup]="loginFormGroup" (ngSubmit)="onLogin()">
+  <img ngSrc="assets/shopping.png" width="150" height="150" class="logo-img"/>
+  <mat-form-field>
+    <input matInput formControlName="username" placeholder="Username" type="text">
+    <mat-error>Username is mandatory</mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput formControlName="password" placeholder="Password" type="password">
+    <mat-error>Password is mandatory</mat-error>
+  </mat-form-field>
+
+  <button mat-raised-button color="accent">Login</button>
+
+</form>

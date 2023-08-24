@@ -1,0 +1,42 @@
+:host {
+  @apply flex flex-col p-4;
+
+  > *:not(:last-child) {
+    @apply mb-4;
+  }
+
+  h4 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .prompt-message {
+    @apply w-60 text-center text-sm mb-2;
+
+    h4 {
+      @apply font-medium;
+  
+      &:first-letter {
+        text-transform: capitalize;
+      }
+    }
+
+    p {
+      @apply font-normal text-gray-700 leading-none;
+    }
+  }
+
+  button {
+    cursor: pointer;
+
+    @apply flex-1;
+  }
+
+  .info-body {
+    @apply p-2.5;
+
+    border-radius: 4px;
+    background-color: var(--ipm-secondary-50);
+    width: 22vw;
+  }
+}

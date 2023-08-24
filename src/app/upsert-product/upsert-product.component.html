@@ -1,0 +1,37 @@
+<h2 mat-dialog-title color="primary">{{dialogData.currentValue ? 'Edit' : 'Add'}} Product</h2>
+<form mat-dialog-content [formGroup]="upsertProductForm" (ngSubmit)="onSave()">
+  <section>
+    <mat-form-field>
+      <mat-label>Title</mat-label>
+      <input matInput formControlName="title">
+         <mat-error>Title is madatory</mat-error>
+    </mat-form-field>
+  
+    <mat-form-field>
+      <mat-label>Description</mat-label>
+      <textarea matInput formControlName="description"></textarea>
+      <mat-error>Description is madatory</mat-error>
+    </mat-form-field>
+  
+    <mat-form-field>
+      <mat-label>Price</mat-label>
+      <input matInput formControlName="price" type="number">
+      <mat-error>Price is madatory</mat-error>
+    </mat-form-field>
+  
+    <mat-form-field>
+      <mat-label>Category</mat-label>
+      <mat-select formControlName="category">
+        <mat-option *ngFor="let category of availableCategories" [value]="category">{{category}}</mat-option>
+      </mat-select>
+      <mat-error>Category is madatory</mat-error>
+    </mat-form-field>
+  
+  </section>
+
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button cdkFocusInitial [disabled]="upsertProductForm.invalid">Save</button>
+  </mat-dialog-actions>
+  
+</form>

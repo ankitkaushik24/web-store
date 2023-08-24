@@ -1,0 +1,50 @@
+<mat-icon
+  class="mb-4 self-center"
+  [ngStyle]="{
+    'height.px': 50,
+    'width.px': 50,
+    'fontSize.px': 50,
+    color: promptMap[data.type].color
+  }"
+  >{{ promptMap[data.type].icon }}
+</mat-icon>
+
+<div class="prompt-message space-y-2 self-center">
+  <h4 [class]="promptMap[data.type].color">
+    {{ data.message }}
+  </h4>
+  <p>{{ data.secondaryMessage }}</p>
+</div>
+
+<div class="info-body flex flex-col mt-2" *ngIf="data.infoMessages">
+  <p class="flex justify-start text-left" *ngFor="let msg of data.infoMessages">
+    <mat-icon svgIcon="info-icon" class="w-6 h-6 pt-2 text-base cursor-default">
+    </mat-icon>
+    <span class="text-primary-800 text-xs font-normal p-2">
+      {{ msg }}
+    </span>
+  </p>
+</div>
+
+<mat-dialog-actions align="end" *ngIf="data?.secondary || data?.primary">
+  <button
+    mat-stroked-button
+    *ngIf="data?.secondary as btn"
+    (click)="btn.handler && btn.handler()"
+    [mat-dialog-close]="false"
+    id="confirm-cancel-btn"
+  >
+    {{ btn.text }}
+  </button>
+  <button
+    color="primary"
+    mat-flat-button
+    *ngIf="data?.primary as btn"
+    (click)="btn.handler && btn.handler()"
+    [mat-dialog-close]="true"
+    cdkFocusInitial
+    id="confirm-proceed-btn"
+  >
+    {{ btn.text }}
+  </button>
+</mat-dialog-actions>
